@@ -5,7 +5,7 @@
         <h3 class="form-signin-heading">Welcome patient, Please Sign In</h3>
         <hr class="colorgraph" />
         <br />
-        <Input type="text" name="email" placeholder="Username" />
+        <Input type="text" name="email" placeholder="Email" />
         <Input type="password" name="password" placeholder="Password" />
         <button
           class="btn btn-lg btn-primary btn-block"
