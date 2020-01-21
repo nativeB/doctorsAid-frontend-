@@ -4,6 +4,11 @@
 ```
 yarn install
 ```
+```
+fill in .env variables from .env.sample
+
+
+```
 
 ### Compiles and hot-reloads for development
 ```
