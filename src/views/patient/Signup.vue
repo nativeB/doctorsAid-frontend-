@@ -23,7 +23,7 @@
           value="Login"
           type="Submit"
         >
-          Login
+          Signup
         </button>
       </form>
     </div>
