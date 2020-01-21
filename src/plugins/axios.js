@@ -39,7 +39,7 @@ _axios.interceptors.response.use(
     const { status } = error.response;
     if (status === 500 || status === 401) {
       console.log(error.response);
-      router.push({ path: "/" });
+      router.push({ path: "/patient/login" });
     } else {
       return Promise.reject(error);
     }
