@@ -53,7 +53,6 @@ export const fetchAdmin = ({ state, dispatch, commit }) => {
     .then(res => {
       const { data } = res;
       if (data.success) {
-        console.log(data.data);
         commit("setAdmin", data.data);
         return data;
       } else {
