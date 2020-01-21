@@ -10,11 +10,11 @@ fill in env variables from .env.sample
 npm install && npm serve
 
 
-Admin
-login : /admin/login
-signup: /admin/signup
-dashboard: /admin/dashboard
-Patient
-login : /patient/signup
-signup: /patient/login
+Admin<br/>
+login : /admin/login<br/>
+signup: /admin/signup<br/>
+dashboard: /admin/dashboard<br/>
+Patient<br/>
+login : /patient/signup<br/>
+signup: /patient/login<br/>
 dashboard: /
