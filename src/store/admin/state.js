@@ -1,4 +1,5 @@
 export default {
     //admin
-    admin:Object
+    admin:{},
+    issues:[]
 }

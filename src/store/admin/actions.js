@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-console */	
 	
 import Vue from 'vue';
-export const login = ({ state, dispatch,commit},data)=>{
+import router from '@/router/index.js'
+export const login = ({ commit},data)=>{
   return Vue.axios.post('/admin/login',data)
   .then(res=>{
     const {data} = res;
     if(data.success){
-    commit('setAdmin',res.data.admin)
+    commit('setAdmin',data.data)
   return data  
   }else return false
   })
-  .catch(e=>{
-    console.log(e);
+  .catch(()=>{
+    router.push({path:'admin/login'})
   })
 }
-export const signup = ({ state, dispatch,commit},data)=>{
+export const signup = ({commit},data)=>{
   return Vue.axios.post('/admin/signup',data)
   .then(res=>{
     const {data}=res;
@@ -25,4 +25,53 @@ export const signup = ({ state, dispatch,commit},data)=>{
         return false
     }
 })
+.catch(()=>{
+  router.push({path:'admin/login'})
+})
+}
+export const fetchIssues = ({ commit})=>{
+  return Vue.axios.get(`/admin/issues`)
+        .then(res=>{
+            const {data}=res;
+            if(data.success){
+                commit('setIssues',data.data)
+                return data
+            }else{
+                return false
+            }
+        })
+        .catch(()=>{
+          router.push({path:'admin/login'})
+        })
+}
+export const fetchAdmin = ({ state, dispatch,commit})=>{
+  return Vue.axios.get('/admin')
+        .then(res=>{
+            const {data}=res;
+            if(data.success){
+              console.log(data.data)
+                commit('setAdmin',data.data)
+                return data
+            }else{
+                return false
+            }
+        })
+        .catch(()=>{
+          router.push({path:'admin/login'})
+        })
+}
+export const respondIssue = ({ state, dispatch,commit},data)=>{
+  return Vue.axios.put(`/admin/issues/${data._id}`,data.issue)
+        .then(res=>{
+            const {data}=res;
+            if(data.success){
+              commit('updateIssue',data.data)
+                return data
+            }else{
+                return false
+            }
+        })
+        .catch(()=>{
+          router.push({path:'admin/login'})
+        })
 }

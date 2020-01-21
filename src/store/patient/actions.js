@@ -1,22 +1,21 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-console */	
 	
 import Vue from 'vue';
-export const login = ({ state, dispatch,commit},data)=>{
+import router from '@/router/index.js'
+export const login = ({commit},data)=>{
   return Vue.axios.post('/patient/login',data)
   .then(res=>{
     const {data} = res;
     if(data.success){
-    commit('setPatient',res.data.admin)
-
-return data    
+    commit('setPatient',data.data)
+    return data    
 }else return false
   })
-  .catch(e=>{
-    console.log(e);
+  .catch(()=>{
+    router.push({path:'patient/login'})
   })
 }
-export const signup = ({ state, dispatch,commit},data)=>{
+export const signup = ({ commit},data)=>{
   return Vue.axios.post('/patient/signup',data)
         .then(res=>{
             const {data}=res;
@@ -26,39 +25,67 @@ export const signup = ({ state, dispatch,commit},data)=>{
                 return false
             }
         })
+        .catch(()=>{
+          router.push({path:'patient/login'})
+        })
 }
-export const getIssues = ({ state, dispatch,commit},data)=>{
-  return Vue.axios.post('/patient/signup',data)
+export const fetchIssues = ({ commit})=>{
+  return Vue.axios.get(`/patient/issue`)
         .then(res=>{
             const {data}=res;
             if(data.success){
-                commit('setIssues',data)
+                commit('setIssues',data.data)
                 return data
             }else{
                 return false
             }
         })
+        .catch(()=>{
+          router.push({path:'patient/login'})
+        })
 }
-export const getProfile = ({ state, dispatch,commit})=>{
-  return Vue.axios.post('/patient')
+export const fetchPatient = ({ state, dispatch,commit})=>{
+  return Vue.axios.get('/patient')
         .then(res=>{
             const {data}=res;
             if(data.success){
-                commit('setPatient',data)
+                commit('setPatient',data.data)
                 return data
             }else{
                 return false
             }
+        })
+        .catch(()=>{
+          router.push({path:'patient/login'})
         })
 }
 export const createIssue = ({ state, dispatch,commit},data)=>{
-  return Vue.axios.post('/patient/signup',data)
+  return Vue.axios.post('/patient/issue',data)
         .then(res=>{
             const {data}=res;
             if(data.success){
+                commit('setIssue',data.data)
                 return data
             }else{
                 return false
             }
+        })
+        .catch(()=>{
+          router.push({path:'patient/login'})
+        })
+}
+export const markResolved = ({ commit},data)=>{
+  return Vue.axios.put(`/patient/issue/${data._id}`,data.issue)
+        .then(res=>{
+            const {data}=res;
+            if(data.success){
+                commit('updateIssue',data.data)
+                return data
+            }else{
+                return false
+            }
+        })
+        .catch(()=>{
+          router.push({path:'patient/login'})
         })
 }
