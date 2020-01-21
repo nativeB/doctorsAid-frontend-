@@ -1,5 +1,5 @@
 export default {
-    //admin
-    patient:{},
-    issues:[]
-}
+  //admin
+  patient: {},
+  issues: []
+};

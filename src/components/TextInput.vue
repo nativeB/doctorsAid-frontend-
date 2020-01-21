@@ -1,7 +1,6 @@
 <template>
-
   <b-form-textarea
-    v-if="type==='textarea'"
+    v-if="type === 'textarea'"
     id="textarea-rows"
     :placeholder="placeHolder"
     rows="8"
@@ -9,27 +8,30 @@
     @input="emitInput"
     :disabled="disabled"
   ></b-form-textarea>
-   <b-form-input 
-    :value="value" :disabled="disabled" v-else @input="emitInput" :placeholder="placeHolder"></b-form-input>
-   
+  <b-form-input
+    :value="value"
+    :disabled="disabled"
+    v-else
+    @input="emitInput"
+    :placeholder="placeHolder"
+  ></b-form-input>
 </template>
 
 <script>
 export default {
-  name: 'textinput',
+  name: "textinput",
   props: {
-    placeHolder:String,
-    type:String,
-    value:String,
-    disabled:Boolean
+    placeHolder: String,
+    type: String,
+    value: String,
+    disabled: Boolean
   },
-  methods:{
-    emitInput(e){
+  methods: {
+    emitInput(e) {
       // eslint-disable-next-line no-console
-      console.log(e)
-      this.$emit('text',e)
+      console.log(e);
+      this.$emit("text", e);
     }
   }
-}
+};
 </script>
-

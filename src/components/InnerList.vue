@@ -1,5 +1,5 @@
 <template>
-   <b-collapse :id="idx"  class="mt-2">
+  <b-collapse :id="idx" class="mt-2">
     <b-card>
       <slot></slot>
     </b-card>
@@ -8,10 +8,9 @@
 
 <script>
 export default {
-  name: 'card',
+  name: "card",
   props: {
-    idx:String
+    idx: String
   }
-}
+};
 </script>
-

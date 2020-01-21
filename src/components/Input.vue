@@ -1,17 +1,23 @@
 <template>
-  <input :type="type||'text'" class="form-control" :name="name" :placeholder="placeholder" required="" autofocus="" />
+  <input
+    :type="type || 'text'"
+    class="form-control"
+    :name="name"
+    :placeholder="placeholder"
+    required=""
+    autofocus=""
+  />
 </template>
 
 <script>
 export default {
-  name: 'inputs',
+  name: "inputs",
   props: {
     type: String,
     name: String,
-    placeholder: String,
-
+    placeholder: String
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

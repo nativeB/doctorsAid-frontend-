@@ -1,16 +1,15 @@
 <template>
-  <b-modal id="modal-2" :title="title" >
-     <p>{{response}}</p>
-     </b-modal>
+  <b-modal id="modal-2" :title="title">
+    <p>{{ response }}</p>
+  </b-modal>
 </template>
 
 <script>
 export default {
-  props:{
-    title:String,
-    response:String
+  props: {
+    title: String,
+    response: String
   },
-  name: 'createissue',
-}
+  name: "createissue"
+};
 </script>
-
