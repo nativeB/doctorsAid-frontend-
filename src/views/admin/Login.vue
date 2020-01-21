@@ -3,10 +3,10 @@
   <div class = "container">
 	<div class="wrapper">
 		<form @submit.prevent="login" class="form-signin">       
-		<h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+		<h3 class="form-signin-heading">Welcome Admin, Please Sign In</h3>
 		<hr class="colorgraph"><br>
 		<Input type="text" name="email" placeholder="Username" />
-		<Input type="password"  name="password" placeholder="Password" />     		  	 
+		<Input type="password"  name="password" placeholder="Password"  />     		  	 
 		<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
 		</form>			
 	</div>
@@ -32,7 +32,8 @@ export default {
 /* eslint-disable no-unused-vars */	
 	const data = serialise(e.target)
 	this['admin/login'](data).then(res=>{
-		//if(res)this.$router.push({path:'/admin/login'})
+		console.log(res)
+		if(res)this.$router.push({path:'/admin/dashboard'})
 	})
 	},
 	...mapActions([
