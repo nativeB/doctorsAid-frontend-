@@ -3,7 +3,7 @@
   <div class = "container">
 	<div class="wrapper">
 		<form @submit.prevent="login" class="form-signin">       
-		<h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+		<h3 class="form-signin-heading">Welcome patient, Please Sign In</h3>
 		<hr class="colorgraph"><br>
 		<Input type="text" name="email" placeholder="Username" />
 		<Input type="password"  name="password" placeholder="Password" />     		  	 
@@ -33,7 +33,7 @@ export default {
 	const data = serialise(e.target)
 	this['patient/login'](data)
 	.then(res=>{
-		if(res) this.$router.push({path:"/patient/dashboard"})
+		if(res) this.$router.push({path:"/"})
 	})
 	},
 	...mapActions([

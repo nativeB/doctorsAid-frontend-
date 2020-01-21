@@ -3,13 +3,13 @@
   <div class = "container">
 	<div class="wrapper">
 		<form @submit.prevent="signup" class="form-signin">       
-		<h3 class="form-signin-heading">Welcome,{{user}} Please Sign In</h3>
+		<h3 class="form-signin-heading">Welcome patient, Please Sign Up</h3>
 		<hr class="colorgraph"><br>
 		<Input type="text" name="firstName" placeholder="First Name" />
 		<Input type="text" name="lastName" placeholder="Last Name" />
 		<Input type="text" name="email" placeholder="Email" />
 		<Input type="tel" name="number" placeholder="Phone Number" />
-		<Input type="password"  name="password" placeholder="Password" />     		  	 
+		<Input type="password"  name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />     		  	 
 		<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
 		</form>			
 	</div>
